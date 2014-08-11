@@ -10,21 +10,28 @@ class UsersController < ApplicationController
   def create
     user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     	if user.save
-    		redirect_to users_path
-    	else
-    		render 'new'
+    		redirect_to new_session_path
+    			#redirect_to :action => :index
+    	#else
+    		#render 'new'
     	end
   end
   
   def show
+  	@user = User.new
     
   end
   def edit
-    
-  end
-  def update
-    
-  end
+		@user = User.find(params[:id])
+	end
+ def update
+		@user = User.find(params[:id])
+		if @bean.update_attributes(params.require(:user).permit(:name, :email, :password))
+			redirect_to users_path
+		else
+			render 'edit'
+		end
+	end
   def destroy
      User.find(params[:id]).destroy
     # Exactly the same idea as this little number:

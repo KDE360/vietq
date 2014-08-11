@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-
+  
   resources :users
 
+  resource :session, only: [:new, :create, :destroy]
+  
+
   root 'users#new'
+
+  get 'verified', to: 'sessions#index'
+  #get "login" , to: "sessions#new"
 
   # get 'users' => 'users#index', as: :users
   # get 'users/new' => 'users#new', as: :new_user

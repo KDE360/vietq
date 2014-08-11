@@ -1,13 +1,13 @@
-<h1>Loginasdfasfd/h1>
+<h1>Login</h1>
 
 <h5> Need an account? </h5>
-<%if current_user %>
-Welcome <%= current_user.name %>
+
+
 <%= link_to "Logout", session_path, method: :delete %>
-<% else %>
+
 <%= link_to "Sign Up", new_user_path if !@is_signup%>
 <%= link_to "Log In", new_session_path if !@is_login%>
-<% end %>
+
 
 
 

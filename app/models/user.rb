@@ -7,5 +7,7 @@ class User
   field :password_digest, type: String
 
   has_secure_password
+  has_many :tagits
+
 
 end
