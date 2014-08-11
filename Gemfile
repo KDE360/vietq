@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'mongoid'
 
+gem 'bootstrap-sass'
 
 # testing
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

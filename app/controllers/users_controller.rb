@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     	if user.save
     		redirect_to new_session_path
     			#redirect_to :action => :index
-    	#else
+    	else
+        redirect_to new_user_path
     		#render 'new'
     	end
   end
