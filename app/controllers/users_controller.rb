@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
 	def index
     @users = User.all
   end
@@ -8,8 +9,8 @@ class UsersController < ApplicationController
   end
   
   def create
-    user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
-    	if user.save
+    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation, :image))
+    	if @user.save
     		redirect_to new_session_path
     			#redirect_to :action => :index
     	else
@@ -27,14 +28,17 @@ class UsersController < ApplicationController
 	end
  def update
 		@user = User.find(params[:id])
-		if @bean.update_attributes(params.require(:user).permit(:name, :email, :password))
+		if @user.update_attributes(params.require(:user).permit(:name, :email, :password))
 			redirect_to users_path
 		else
 			render 'edit'
 		end
 	end
+
+
   def destroy
      User.find(params[:id]).destroy
+     #kills the cookies
     # Exactly the same idea as this little number:
 		# User.find_by(id: params[:id])
     redirect_to users_path

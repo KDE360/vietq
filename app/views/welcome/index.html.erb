@@ -1,9 +1,6 @@
-<div class= "col-sm-offset-4">
-
-
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-offset-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <span class="glyphicon glyphicon-lock"></span> Login</div>
@@ -48,28 +45,4 @@
             </div>
         </div>
     </div>
-</div>
-
-
-<h1>Login</h1>
-
-<h5> Need an account? </h5>
-
-
-<%# link_to "Logout", session_path, method: :delete %> 
-
-<%= link_to "Sign Up", new_user_path if !@is_signup%>
-<%= link_to "Log In", new_session_path if !@is_login%>
-
-
-
-
-<%= form_for @user, {url: session_path} do |f| %>
-	<%= f.text_field :email, placeholder: "E-mail" %>
-	<%= f.password_field :password, placeholder: "Password" %>
-	<%= f.submit "Log In" %>
-
-
-<% end %>
-
 </div>
