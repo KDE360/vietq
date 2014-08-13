@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     else
       # Go back to the login page
       # redirect_to new_session_path
-      redirect_to users_path
+      redirect_to new_session_path
     end
     
   end

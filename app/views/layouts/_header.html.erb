@@ -8,22 +8,33 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="/">Logo</a>
+         <ul class="nav navbar-nav navbar-left">
+		<!-- if logged in  -->
+		<% if current_user %>
+			<div class="welcome">Welcome, <%= current_user.name %>!</div>
+		<% else %>
+			 <li></li>
+		<% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <!-- This will be used to expand the project later -->
         
-      <ul class="nav navbar-nav">
+	
+			
+
+
+      <ul class="nav navbar-nav navbar-right">
 		<!-- if logged in  -->
 		<% if current_user %>
-			Welcome <%= link_to current_user.name, user_path(current_user.id) %>!
-			<li class="active"><%= link_to "Log out", session_path, method: :delete, :class => "btn" %></li>
+			<!-- <span class="welcome">Welcome, <%= current_user.name %>!</span> -->
+			<%= link_to "Log out", session_path, method: :delete, :class => "btn btn-default myBtn" %>
 		<!-- if logged out  -->
 		<% else %>
 			 <li class="active"><%= link_to "Home", new_session_path %></li>
-			<% end %>
+		<% end %>
 			
       	
       	

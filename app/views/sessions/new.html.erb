@@ -1,8 +1,7 @@
 <div class= "col-sm-offset-4">
-
-
 <div class="container">
     <div class="row">
+    	<%= form_for @user, {url: session_path} do |f| %>
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -13,14 +12,14 @@
                         <label for="inputEmail3" class="col-sm-3 control-label">
                             Email</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                            <%= f.text_field :email, placeholder: "E-mail" %>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-3 control-label">
                             Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                            <%= f.password_field :password, placeholder: "Password" %>
                         </div>
                     </div>
                     <div class="form-group">
@@ -35,41 +34,41 @@
                     </div>
                     <div class="form-group last">
                         <div class="col-sm-offset-3 col-sm-9">
-                            <button type="submit" class="btn btn-success btn-sm">
-                                Sign in</button>
-                                 <button type="reset" class="btn btn-default btn-sm">
-                                Reset</button>
+                            <%= f.submit "Log In", class: "btn btn-success btn-sm" %>
+                                 <!-- <button type="reset" class="btn btn-default btn-sm">
+                                Reset</button> -->
                         </div>
                     </div>
                     </form>
                 </div>
                 <div class="panel-footer">
-                    Not Registred? <a href="localhost:3000/users/new">Register here</a></div>
+                    Not Registred?  <%= link_to "Sign Up", new_user_path if !@is_signup%></div>
             </div>
         </div>
+        <% end %>
     </div>
 </div>
 
 
-<h1>Login</h1>
+<!-- h1>Login</h1>
 
 <h5> Need an account? </h5>
 
 
 <%# link_to "Logout", session_path, method: :delete %> 
 
-<%= link_to "Sign Up", new_user_path if !@is_signup%>
-<%= link_to "Log In", new_session_path if !@is_login%>
+<%#= link_to "Sign Up", new_user_path if !@is_signup%>
+<%#= link_to "Log In", new_session_path if !@is_login%>
 
 
 
 
-<%= form_for @user, {url: session_path} do |f| %>
-	<%= f.text_field :email, placeholder: "E-mail" %>
-	<%= f.password_field :password, placeholder: "Password" %>
-	<%= f.submit "Log In" %>
+<%#= form_for @user, {url: session_path} do |f| %>
+	<%#= f.text_field :email, placeholder: "E-mail" %>
+	<%#= f.password_field :password, placeholder: "Password" %>
+	<%#= f.submit "Log In" %>
 
 
-<% end %>
+<%# end %> -->
 
 </div>

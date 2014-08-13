@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  
+  root 'sessions#new'
+
 
   resources :users
   
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   
+ 
  
   #root 'users#new'
 
@@ -28,8 +30,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
-
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
