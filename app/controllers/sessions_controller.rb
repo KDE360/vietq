@@ -14,9 +14,13 @@ class SessionsController < ApplicationController
       # Store as a cookie in the users' browser the ID of them,
       # indicating that they are logged in
       session[:user_id] = u.id.to_s
-      # redirect_to users_path
+      if u.is_admin == true 
+        redirect_to users_path
+      else
+      redirect_to user_path(session[:user_id])
       # redirect to session new
-      redirect_to :action => :index
+      # redirect_to :action => :index
+    end
      
     else
       # Go back to the login page

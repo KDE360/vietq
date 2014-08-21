@@ -1,3 +1,23 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+
+	
+}
+
+.bg {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: url(background.jpg);
+	background-size: cover;
+	left: 0;
+	top: 0;
+	z-index: 10;
+}
+
+.signInForm {
+	margin-top: 5em;
+}

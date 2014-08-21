@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  before_action :check_admin, only: [:destroy, :edit]
 
 	def index
     @users = User.all
+
   end
 
   def new
@@ -9,8 +11,8 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation, :image))
-    	if @user.save
+    user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation, :image))
+    	if user.save
     		redirect_to new_session_path
     			#redirect_to :action => :index
     	else
@@ -38,9 +40,17 @@ class UsersController < ApplicationController
 
   def destroy
      User.find(params[:id]).destroy
-     #kills the cookies
     # Exactly the same idea as this little number:
 		# User.find_by(id: params[:id])
     redirect_to users_path
   end
+
+  private
+   def check_admin
+    unless current_user && current_user.is_admin
+      redirect_to users_path
+    end
+  end
 end
+
+

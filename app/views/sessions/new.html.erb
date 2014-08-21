@@ -1,6 +1,8 @@
+<div class="bg">
+
 <div class= "col-sm-offset-4">
 <div class="container">
-    <div class="row">
+    <div class="row signInForm">
     	<%= form_for @user, {url: session_path} do |f| %>
         <div class="col-md-4">
             <div class="panel panel-default">
@@ -35,9 +37,9 @@
                     <div class="form-group last">
                         <div class="col-sm-offset-3 col-sm-9">
                             <%= f.submit "Log In", class: "btn btn-success btn-sm" %>
-                                 <!-- <button type="reset" class="btn btn-default btn-sm">
-                                Reset</button> -->
-                        </div>
+                           <!-- If I want a reset button -->
+                            <%#= f.submit "Reset",  class: "btn btn-default btn-sm" %>
+                         </div>
                     </div>
                     </form>
                 </div>
@@ -48,27 +50,15 @@
         <% end %>
     </div>
 </div>
-
-
 <!-- h1>Login</h1>
-
 <h5> Need an account? </h5>
-
-
 <%# link_to "Logout", session_path, method: :delete %> 
-
 <%#= link_to "Sign Up", new_user_path if !@is_signup%>
 <%#= link_to "Log In", new_session_path if !@is_login%>
-
-
-
-
 <%#= form_for @user, {url: session_path} do |f| %>
 	<%#= f.text_field :email, placeholder: "E-mail" %>
 	<%#= f.password_field :password, placeholder: "Password" %>
 	<%#= f.submit "Log In" %>
-
-
 <%# end %> -->
-
+</div>
 </div>

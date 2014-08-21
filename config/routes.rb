@@ -1,22 +1,18 @@
 Rails.application.routes.draw do
-  
-  root 'sessions#new'
-
-
-  resources :users
-  
-
-
-  resource :session, only: [:new, :create, :destroy]
-  
- 
- 
-  #root 'users#new'
+  resources :photos
 
   get 'verified', to: 'sessions#index'
+  get "login" , to: 'sessions#new'
+
+  resources :users
+  resource :session, only: [:new, :create, :destroy]  
+  resources :photos
+ 
+  root 'sessions#new'
+  #root 'users#new'
 
   # get 'welcome/index'
-  get "login" , to: "sessions#new"
+  
 
   # get 'users' => 'users#index', as: :users
   # get 'users/new' => 'users#new', as: :new_user

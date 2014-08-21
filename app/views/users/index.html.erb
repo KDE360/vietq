@@ -1,12 +1,27 @@
-<h1>Users#index</h1>
+<h1>Let's see WHO is IN HERE?</h1>
 
 <ul>
-<% @users.each do |u| %>
-	<li>
-		<%= link_to u.name, edit_user_path(u.id) %>
-		<%= button_to "X", user_path(u.id), method: :delete %> 
-	</li> 
-<% end %>
-</ul>
+		<li>
+			<% @users.each do |u| %>
+			<%= link_to u.name, edit_user_path(u.id) %>
+			<%= button_to "delete this DUDE!", user_path(u.id), method: :delete %> 
+			<div class="user_box"><h1><%= u.email %></h1>
+				
+				<%= link_to "Add Photo", new_photo_path %>
+			<% end %>	
+			<% current_user.photos.each do |u| %>
+				<%=image_tag u.image.url %><br />
+				<%#= image_tag u.image.url %>
+				<%#= image_tag u.image.url %>
+				<%#= image_tag u.image.url %>
+			<% end %>
+		</div>
+		</li> 
+</ul> 
+<%= link_to "Add user", new_user_path %>
 
-<%= link_to "Add User", new_user_path %>
+<!--<%# if current_user != nil %>
+	<%# @users.each do |u| %>
+		
+	<%# end %>
+<%# end %> -->

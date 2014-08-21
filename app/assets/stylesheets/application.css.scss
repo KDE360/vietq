@@ -55,8 +55,30 @@ body {
 }*/
 
 .welcome {
-	margin-top: 1em;
+	margin-top: 1.2em;
 	text-align: center;
+	color: navy;
 	
+}
+
+.myNav {
+	background-color: rgba(255, 255, 255, .8);
+	-webkit-transition: background-color ease-out .4s;
+	-moz-transition: background-color ease-out .4s;
+	-o-transition: background-color ease-out .4s;
+	transition: background-color ease-out .4s;
+	color: white;
+	border-radius: none !important;
+	border: none !important; 
+	z-index: 15;
+}
+
+.myNav:hover{
+	background-color: rgba(255, 255, 255, 1);
+	-webkit-transition: background-color ease-out .4s;
+	-moz-transition: background-color ease-out .4s;
+	-o-transition: background-color ease-out .4s;
+	transition: background-color ease-out .4s;
+
 }
 
